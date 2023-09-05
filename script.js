@@ -51,7 +51,11 @@ const battery = () => {
         updateBatteryChargingTime(battery.chargingTime);
       });
       function updateBatteryChargingTime(chargingTime) {
-        batteryChargingTime.innerHTML = secondsToHoursMinutes(chargingTime);
+        if (chargingTime !== null) {
+          batteryChargingTime.innerHTML = secondsToHoursMinutes(chargingTime);
+        } else {
+          batteryChargingTime.innerHTML = "Battery is discharging";
+        }
       }
 
       // Battery DisCharging Time
@@ -59,8 +63,12 @@ const battery = () => {
         updateBatteryDisChargingTime(battery.dischargingTime);
       });
       function updateBatteryDisChargingTime(dischargingTime) {
-        batteryDisChargingTime.innerHTML =
-          secondsToHoursMinutes(dischargingTime);
+        if (dischargingTime !== null) {
+          batteryDisChargingTime.innerHTML =
+            secondsToHoursMinutes(dischargingTime);
+        } else {
+          batteryDisChargingTime.innerHTML = "Battery is Charging";
+        }
       }
 
       // Battery level change
