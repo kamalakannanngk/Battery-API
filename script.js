@@ -5,6 +5,18 @@ const batteryDisChargingTime = document.querySelector(
   ".batteryDisChargingTime"
 );
 
+function secondsToHoursMinutes(seconds) {
+  // Calculate hours and remaining seconds
+  const hours = Math.floor(seconds / 3600);
+  const remainingSeconds = seconds % 3600;
+
+  // Calculate minutes
+  const minutes = Math.floor(remainingSeconds / 60);
+
+  // Return a formatted string
+  return `${hours} hour ${minutes} minutes`;
+}
+
 const battery = () => {
   if ("getBattery" in navigator) {
     navigator.getBattery().then((battery) => {
@@ -36,20 +48,22 @@ const battery = () => {
 
       // Battery Charging Time
       battery.addEventListener("chargingtimechange", () => {
-        updateBatteryChargingTime();
+        updateBatteryChargingTime(battery.chargingTime);
       });
-      function updateBatteryChargingTime() {
-        batteryChargingTime.innerHTML = battery.chargingTime + " seconds";
+      function updateBatteryChargingTime(chargingTime) {
+        batteryChargingTime.innerHTML = secondsToHoursMinutes(chargingTime);
       }
 
       // Battery DisCharging Time
       battery.addEventListener("dischargingtimechange", () => {
-        updateBatteryDisChargingTime();
+        updateBatteryDisChargingTime(battery.dischargingTime);
       });
-      function updateBatteryDisChargingTime() {
-        batteryDisChargingTime.innerHTML = battery.dischargingTime + " seconds";
+      function updateBatteryDisChargingTime(dischargingTime) {
+        batteryDisChargingTime.innerHTML =
+          secondsToHoursMinutes(dischargingTime);
       }
-      //Battery level change
+
+      // Battery level change
       battery.addEventListener("levelchange", () => {
         updateLevelChange();
       });
