@@ -1,0 +1,36 @@
+h1 {
+  margin-bottom: 50px;
+  color: white;
+}
+
+.battery > * {
+  display: flex;
+  width: 400px;
+  justify-content: space-around;
+  flex-direction: column;
+  border: 10% solid black;
+  border-radius: 5px;
+  box-shadow: 0.1px 0.1px 2px black;
+  font-size: large;
+  background-color: lightgray;
+  text-align: left;
+  padding-left: 15px;
+}
+
+span {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: purple;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #333;
+  margin-right: 20px;
+}
+
+html {
+  background: url(./battery.jpg);
+  background-position: top;
+}
