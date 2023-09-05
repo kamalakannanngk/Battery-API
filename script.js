@@ -16,6 +16,22 @@ const battery = () => {
         updateLevelChange();
       }
       updateAll();
+      function secondsToHoursMinutes(seconds) {
+        // Calculate hours and remaining seconds
+        const hours = Math.floor(seconds / 3600);
+        const remainingSeconds = seconds % 3600;
+
+        // Calculate minutes
+        const minutes = Math.floor(remainingSeconds / 60);
+
+        return { hours, minutes };
+      }
+
+      // Example usage:
+      const totalSeconds = 7200; // Replace with the number of seconds you want to convert
+      const { hours, minutes } = secondsToHoursMinutes(totalSeconds);
+
+      console.log(`${hours} hour(s) ${minutes} minute(s)`);
 
       // Battery Level
       battery.addEventListener("chargingchange", () => {
@@ -39,7 +55,8 @@ const battery = () => {
         updateBatteryChargingTime();
       });
       function updateBatteryChargingTime() {
-        batteryChargingTime.innerHTML = battery.chargingTime + " seconds";
+        const seconds1 = battery.chargingTime;
+        secondsToHoursMinutes(seconds1);
       }
 
       // Battery DisCharging Time
@@ -47,6 +64,8 @@ const battery = () => {
         updateBatteryDisChargingTime();
       });
       function updateBatteryDisChargingTime() {
+        const seconds2 = battery.chargingTime;
+        secondsToHoursMinutes(seconds2);
         batteryDisChargingTime.innerHTML = battery.dischargingTime + " seconds";
       }
       //Battery level change
