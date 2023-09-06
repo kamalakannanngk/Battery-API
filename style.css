@@ -5,7 +5,7 @@ h1 {
 
 .battery > * {
   display: flex;
-  width: 400px;
+  width: 450px;
   justify-content: space-around;
   flex-direction: column;
   border: 10% solid black;
