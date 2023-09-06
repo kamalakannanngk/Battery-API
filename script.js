@@ -35,6 +35,9 @@ const battery = () => {
       });
       function updateBatteryLevel() {
         batteryLevel.innerHTML = battery.level * 100 + "%";
+        if (batteryLevel < 20) {
+          alert(`Battery low!`);
+        }
       }
 
       // Battery Charging
@@ -78,6 +81,9 @@ const battery = () => {
       function updateLevelChange() {
         const level = battery.level * 100 + "%";
         batteryLevel.innerHTML = level;
+        if (level < 20) {
+          alert(`Battery low!`);
+        }
       }
     });
   }
