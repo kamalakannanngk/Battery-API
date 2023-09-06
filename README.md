@@ -1,4 +1,4 @@
-# Battery-API
+# Battery-API [ https://kamalakannanngk.github.io/Battery-API/ ]
 # Battery Status API Example
 
 This is a simple JavaScript example that demonstrates how to use the Battery Status API to monitor and display information about the device's battery.
